@@ -422,6 +422,7 @@ public class Laba6 {
             /**                    Перевірка однорідності дисперсії за критерієм Кохрена                                          */
 
 
+        long nnn = System.currentTimeMillis();
             // дисперсія
             double dispersion1 = 0, dispersion2 = 0, dispersion3 = 0, dispersion4 = 0,
                     dispersion5 = 0, dispersion6 = 0, dispersion7 = 0, dispersion8 = 0,
@@ -536,10 +537,13 @@ public class Laba6 {
             }
 
 
-            /**                   Далі оцінимо значимість коефіцієнтів регресії згідно критерію Стьюдента                                         */
+        System.out.println("ЧАС РОБОТИ ПРОГРАМИ: КРИТЕРІЙ КОХРЕНА (МІЛІСЕКУНДИ) =   "+(double) (System.currentTimeMillis() - nnn));
+
+        /**                   Далі оцінимо значимість коефіцієнтів регресії згідно критерію Стьюдента                                         */
             /**                                              Критерій Фішера                                             */
 
 
+            long mmm = System.currentTimeMillis();
             double sb = sumOfDispersion / N,
                     t = StudentaTable[f3 - 1],
                     sBetta = Math.sqrt(sb / (N * m)), betta0 = 0, betta1 = 0, betta2 = 0, betta3 = 0, betta4 = 0, betta5 = 0, betta6 = 0, betta7 = 0,
@@ -631,12 +635,14 @@ public class Laba6 {
                 }
             }
             FisheraMethod(sum, d, sb, f3, f4, N);
+        System.out.println("ЧАС РОБОТИ ПРОГРАМИ: КРИТЕРІЙ СТЬЮДЕНТА (МІЛІСЕКУНДИ) =   "+(double) (System.currentTimeMillis() - mmm));
         }
    // }
 
 
 
     public static void FisheraMethod(double sum, int d, double sb, int f3, int f4, int N) {
+        long mmm = System.currentTimeMillis();
 
         double[][] FisheraTable = {
                 {164.4, 199.5, 215.7, 224.6, 230.2, 234, 244.9, 249.0, 254.3},
@@ -727,6 +733,8 @@ public class Laba6 {
             }
             System.out.println();
         }
+        System.out.println("ЧАС РОБОТИ ПРОГРАМИ: КРИТЕРІЙ ФІШЕРА (МІЛІСЕКУНДИ) =   "+(double) (System.currentTimeMillis() - mmm));
+
     }
 }
 
